@@ -1,4 +1,5 @@
-﻿@model dynamic
+﻿@using System.Security.Claims
+@model dynamic
 
 @{
     ViewBag.Title = "Resource behind authentication";
@@ -11,5 +12,12 @@
         <a href="@Url.Action("logout","login")">Logout</a>
     }
 </div>
-<div class="row"></div>
+<div class="row">
+    <ul>
+        @foreach (var claim in ((ClaimsPrincipal)User).Claims)
+        {
+            <li>@claim</li>
+        }
+    </ul>
+</div>
 
