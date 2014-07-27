@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Resource behind authentication";
+    Layout = "../_Layout.cshtml";
+}
+<div class="page-header">
+    <h2>Resource</h2>    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="@Url.Action("logout","login")">Logout</a>
+    }
+</div>
+<div class="row"></div>
+
